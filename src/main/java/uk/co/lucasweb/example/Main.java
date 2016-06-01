@@ -14,9 +14,10 @@ public class Main {
         container.start();
 
         JAXRSArchive deployment = ShrinkWrap.create(JAXRSArchive.class, "swarm-485-example.war");
-        deployment.addAsLibrary(container.createDefaultDeployment());
+        deployment.addClass(ExampleApplication.class);
+        deployment.addClass(ExampleResource.class);
+        deployment.addClass(CustomJsonProvider.class);
         deployment.setContextRoot("/swarm-485-example");
-        deployment.addAllDependencies();
 
         // start workaround for swarm-485
 //        deployment.addDependency("com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.5.4");
