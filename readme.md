@@ -23,3 +23,8 @@ The application should start successfully but fails with the following error:
 2016-06-01 11:05:00,620 ERROR [stderr] (main) Caused by: org.wildfly.swarm.container.DeploymentException: {"WFLYCTL0080: Failed services" => {"jboss.undertow.deployment.default-server.default-host./swarm-485-example" => "org.jboss.msc.service.StartException in service jboss.undertow.deployment.default-server.default-host./swarm-485-example: java.lang.NoClassDefFoundError: Failed to link uk/co/lucasweb/example/CustomJsonProvider (Module \"deployment.swarm-485-example.war:main\" from Service Module Loader): com/fasterxml/jackson/jaxrs/json/JacksonJaxbJsonProvider
 2016-06-01 11:05:00,620 ERROR [stderr] (main)     Caused by: java.lang.NoClassDefFoundError: Failed to link uk/co/lucasweb/example/CustomJsonProvider (Module \"deployment.swarm-485-example.war:main\" from Service Module Loader): com/fasterxml/jackson/jaxrs/json/JacksonJaxbJsonProvider"}}
 ```
+
+The issue can be resolved either by:
+
+1. Reverting the Wildfly Swarm version in the Maven POM file to 1.0.0.Beta8 resolves the issue.
+2. Uncommenting the swarm-485 workaround in uk.co.lucasweb.Main

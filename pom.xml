@@ -17,6 +17,7 @@
 
         <wildfly.swarm.version>1.0.0.CR1</wildfly.swarm.version>
         <javaee-api.version>7.0</javaee-api.version>
+        <jackson-jaxrs-json-provider.version>2.5.4</jackson-jaxrs-json-provider.version>
     </properties>
 
     <dependencyManagement>
@@ -45,6 +46,13 @@
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>jaxrs-cdi</artifactId>
+        </dependency>
+
+        <!-- jackson -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.jaxrs</groupId>
+            <artifactId>jackson-jaxrs-json-provider</artifactId>
+            <version>${jackson-jaxrs-json-provider.version}</version>
         </dependency>
 
     </dependencies>
